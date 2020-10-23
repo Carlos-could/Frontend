@@ -9,7 +9,7 @@ if (isset($_POST['mandalo']) ) {
     $ejecutarInsertar = mysqli_query($conexion, $insertarDatos);
 
     $verificarUsuarioRepetido = mysqli_query($conexion, "SELECT * FROM usuarios WHERE nombre = '$nombre' ");
-    if (mysqli_num_rows($verificarUsuarioRepetido) > 0) {
+    if (mysqli_num_rows($verificarUsuarioRepetido) < 0) {
         echo "<script>
                 alert('El usuario ya esta registrado');
                 window.history.go(-1);
