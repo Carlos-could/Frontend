@@ -34,21 +34,21 @@ function traerTXT() {
 boton.addEventListener('click', traerTXT);
 </code>
 </pre>
-         </div>
+         </div> <!-- six columns -->
 
          <div class="six columns">
             <button class="" id="boton_json" >Traer Json </button>
-            <h5>
-               <div class="" id="contenedor"> </div>
-            </h5>
+            <button class="" id="boton_json_grande" >Traer Json Grande</button>
+               <div class="" id="contenedor_json"> </div>
+               <div class="" id="contenedor_json_grande"> </div>
 
-         </div>
+         </div> <!-- six columns -->
 
-      </div>
-   </div>
+      </div> <!-- row -->
+   </div> <!-- container -->
 
  <script>
-
+//Traer TXT
 var boton = document.querySelector('#boton_txt')
 
 function traerTXT() {
@@ -70,8 +70,60 @@ function traerTXT() {
 }
 boton.addEventListener('click', traerTXT);
 
+//Traer JSON
+var boton_json = document.querySelector('#boton_json')
+function traerJSON() {
+   const ajax = new XMLHttpRequest();
+   ajax.open("GET", "ajax.json", true);
+   ajax.onreadystatechange = function (){
+    if (this.readyState == 4 && this.status == 200) {
+       console.log('Se cargo correctamente')
+       var contenedor_json = document.querySelector('#contenedor_json')
+       var persona = JSON.parse(this.responseText);
+       contenedor_json.innerHTML = `
+          <ul>
+            <li> ID : ${persona.id}</li>
+            <li> Nombre : ${persona.nombre}</li>
+            <li> Empresa : ${persona.empresa}</li>
+            <li> Trabajo : ${persona.trabajo}</li>
+          </ul>
+       `
+       } //if
+   } //f
 
+    ajax.send();
+   }
+boton_json.addEventListener('click', traerJSON);
 
+//Traer JSON Grande
+var boton_json_grande = document.querySelector('#boton_json_grande')
+var contenedor_json_grande = document.querySelector('#contenedor_json_grande')
+
+function traerJSONGrande() {
+   const ajax = new XMLHttpRequest();
+   ajax.open("GET", "ajaxs.json", true);
+
+   ajax.onreadystatechange = function (){
+    if (this.readyState == 4 && this.status == 200) {
+
+       const personal = JSON.parse(this.responseText);
+
+       personal.forEach( function(persona){
+          contenedor_json_grande.innerHTML += `
+             <ul>
+               <p> ID : ${persona.id}</p>
+               <li> Nombre : ${persona.nombre}</li>
+               <li> Empresa : ${persona.empresa}</li>
+               <li> Trabajo : ${persona.trabajo}</li>
+             </ul>
+          `
+       });
+
+    } //if
+}//f
+    ajax.send();
+   }
+boton_json_grande.addEventListener('click', traerJSONGrande);
 
 
  </script>
