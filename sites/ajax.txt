@@ -1,1 +1,1 @@
-hola perro soy un archivo txt externo
+Soy un archivo txt externo
