@@ -17,7 +17,7 @@
 
   <!-- Favicon
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="icon" type="../image/png" href="images/extraterrestre.png">
+  <link rel="icon" type="../image/png" href="../../images/extraterrestre.png">
 
 </head>
 <body>

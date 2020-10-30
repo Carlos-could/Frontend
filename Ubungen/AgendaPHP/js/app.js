@@ -24,6 +24,7 @@ function leerFormulario(e) {
         infoContacto.append('telefono', telefono);
         infoContacto.append('accion', accion);
 
+        console.log(...infoContacto);
         if (accion === 'crear') {
            insertarDB(infoContacto);
         }else{
@@ -42,16 +43,15 @@ function insertarDB(datos) {
    xhr.open('POST', 'inc/modelos/modelo-contactos.php', true);
    //pasar los datos
    xhr.onload = function () {
-      if (this.status == 200) {
+      if (this.status === 200) {
          // datos en array asociativo PHP
-         console.log(xhr.responseText)
-         // datos en objote JS - JSON.parse lo convierte
-         console.log(JSON.parse(xhr.responseText));
+         //JSON.parse lo convierte de Json a Objeto para poder acceder a ella
+         console.log(JSON.parse( xhr.responseText) );
          //leemos la respuesta de PHP
-         const respuesta = JSON.parse(xhr.responseText);
+         const respuesta = JSON.parse (xhr.responseText) ;
 
          console.log(respuesta.empresa);
-      }
+      } //if
    }
    //enviar los datos
    xhr.send(datos);
