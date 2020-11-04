@@ -12,6 +12,7 @@
                 <legend></legend>
                 <?php include "inc/layout/formulario.php"; ?>
             </form>
+            <a href="como.php">Como se hizo</a>
         </div> <!-- 5 columnas-->
 
         <!-- <div class="box_2 quan_contact">

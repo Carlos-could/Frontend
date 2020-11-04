@@ -24,104 +24,121 @@
 <body>
 
    <div class="container">
-      <h2 class="my-2">Formulario de registro</h2>
+     <h3 class="my-2 text-center">Formulario de registro</h3>
 
-      <div class="row">
-        <div class="five columns">
+    <div class="row my-4 pb-2 flex-center" style="border-bottom: 1px solid gray;">
+      <div class="five columns">
+        <form method="post" action="registrar.php">
 
-            <form method="post" action="registrar.php">
-               <div class="row">
+          <label for="exampleEmailInput">Tu nombre</label>
+          <input class="u-full-width" type="text" name="nombre" placeholder="nombre" id="exampleEmailInput">
 
-               <div class="u-full-width" >
-                  <label for="exampleEmailInput">Tu nombre</label>
-                  <input class="u-full-width" type="text" name="nombre" placeholder="nombre" id="exampleEmailInput">
-               </div>
+          <label for="exampleEmailInput">Tu email</label>
+          <input class="u-full-width" type="email" name="email" placeholder="test@mailbox.com" id="exampleEmailInput">
 
-               <div class="u-full-width" >
-                  <label for="exampleEmailInput">Tu email</label>
-                  <input class="u-full-width" type="email" name="email" placeholder="test@mailbox.com" id="exampleEmailInput">
-               </div>
+          <input class="button-primary" type="submit" name="mandalo" value="Mandalo">
+        </form>
+      </div> <!--5 columnas-->
+    </div> <!--row-->
 
-               </div> <!--row-->
+    <div class="row my-4 pb-2" style="border-bottom: 1px solid gray;">
+      <div class="five columns">
+        <h5>Creamos el formulario</h5>
+        <p>Puntos importantes:</p>
+        <ol>
+          <li>method: Post o Get</li>
+          <li>accion: archivo a leer despues de apretar "Submit"</li>
+          <li>name de los inputs: para poder coger los datos</li>
+        </ol>
 
-               <input class="button-primary" type="submit" name="mandalo" value="Mandalo">
-            </form>
-         </div> <!-- one-half-->
-
-
-
+      </div> <!-- 5 columnas-->
 
       <div class="seven columns">
-<p class="m-cero">HTML - Hacer el Formulario</p>
-<pre class="m-cero">
-<code>
- &lt;form method="post" action="registrar.php"&gt; &lt;!-- action="registrar.php --&gt;
-     &lt;div&gt;
-         &lt;label&gt;Tu nombre&lt;/label&gt;
-         &lt;input type="text" name="nombre" &gt; &lt;!-- name="nombre" --&gt;
-     &lt;/div&gt;
+        <p class="m-cero">HTML - Hacer el Formulario</p>
+        <pre class="m-cero">
+          <code>&lt;form method="post" action="registrar.php"&gt;
+  &lt;label&gt;Tu nombre&lt;/label&gt;
+  &lt;input type="text" name="nombre" &gt;
 
-     &lt;div&gt;
-         &lt;label&gt;Tu email&lt;/label&gt;
-         &lt;input type="email" name="email" &gt; &lt;!-- name="email" --&gt;
-     &lt;/div&gt;
+  &lt;label&gt;Tu email&lt;/label&gt;
+  &lt;input type="email" name="email" &gt;
 
-     &lt;input type="submit" name="mandalo" value="Mandalo"&gt;
- &lt;/form&gt;
-</code>
+  &lt;input type="submit" name="mandalo" value="Mandalo"&gt;
+&lt;/form&gt;</code>
 </pre>
+</div> <!-- 7 columnas-->
+</div> <!--row-->
 
-<p class="m-cero">PHP - Crear conexión a la Base de Datos</p>
-<pre class="m-cero">
-<code>
-&lt;?php
-$servidor="localhost";
-$usuario="root";
-$clave="";
-$baseDeDatos="formulario";
+  <div class="row my-4 pb-2" style="border-bottom: 1px solid gray;">
+    <div class="five columns">
+      <h5>Creamos la conexión a la Base de Datos</h5>
 
-$enlace = mysqli_connect($servidor, $usuario, $clave, $baseDeDatos);
+    </div><!-- 5 columnas-->
 
-if (!$enlace) {
-  echo "hay un error";
-}
-?&gt;
-</code>
-</pre>
+    <div class="seven columns">
+      <p class="m-cero">conex_db.php</p>
+      <pre class="m-cero"><code>&lt;?php
+  $servidor="localhost";
+  $usuario="root";
+  $clave="";
+  $baseDeDatos="formulario";
 
-<p class="m-cero">PHP - Mandar datos a la Base de Datos </p>
-<pre class="m-cero">
-<code>
-&lt;?php
-include "conex_bd.php";
+  $enlace = mysqli_connect($servidor, $usuario, $clave, $baseDeDatos);
 
-if (isset($_POST['mandalo']) ) {
-  //Recibir datos del formulario y almacenarlos en variables
-  $nombre = $_POST['nombre'];
-  $email = $_POST['email'];
-
-  //Consulta SQL para insertar en la BD
-  $insertarDatos = "INSERT INTO usuarios (nombre, email) VALUES('$nombre', '$email')";
-
-  //Ejecutar consulta
-  $ejecutarInsertar = mysqli_query($enlace, $insertarDatos);
-
-  if (!$ejecutarInsertar) {
-      echo "Error perro";
-  }else{
-      echo 'Registrado';
+  if (!$enlace) {
+    echo "hay un error";
   }
-}
+?&gt;</code>
+  </pre>
+    </div><!-- 7 columnas-->
+  </div><!-- row-->
 
-mysqli_close($enlace);
-?&gt;
+    <div class="row my-4 pb-2">
+      <div class="five columns">
+        <h5>Mandamos los datos a la Base de Datos </h5>
+        <ol>
+          <li>Recibimos los datos del formulario y los almacenarlos en variables</li>
+          <ul>
+            <p class="c-2">$nombre = $_POST['nombre']</p>
+          </ul>
+          <li>Hacemos la consulta SQL para insertar los datos en la BD</li>
+          <ul>
+            <p class="c-3">$insertarDatos = "INSERT INTO usuarios...</p>
+          </ul>
+          <li>Ejecutamos la consulta</li>
+          <ul>
+            <p class="c-1">$ejecutarInsertar = mysqli_query...</p>
+          </ul>
+        </ol>
 
-</code>
+      </div><!-- 5 columnas-->
+      <div class="seven columns">
+        <p class="m-cero">registrar.php</p>
+        <pre class="m-cero">
+          <code>&lt;?php
+  include "conex_bd.php";
+
+  if (isset($_POST['mandalo']) ) {
+    $nombre = $_POST['nombre'];
+    $email = $_POST['email'];
+
+    $insertarDatos = "INSERT INTO usuarios (nombre, email) VALUES('$nombre', '$email')";
+
+    $ejecutarInsertar = mysqli_query($enlace, $insertarDatos);
+
+    if (!$ejecutarInsertar) {
+      echo "Error perro";
+    }else{
+      echo 'Registrado';
+    }
+  }
+
+  mysqli_close($enlace);
+  ?&gt;</code>
 </pre>
+      </div><!-- 7 columnas-->
+    </div><!-- row-->
 
-    </div> <!-- one-half -->
-
-</div> <!-- row-->
   </div> <!-- container -->
 
 </body>

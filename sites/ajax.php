@@ -5,8 +5,8 @@
    <div class="container">
       <div class="row my-2 text-center">
          <h3 class="">Ajax</h3>
-         <h5  class="c-5">Asynchronous JavaScript And XML</h5>
-         <p>Trae datos externos sin recargar toda la página </p>
+         <h5>Asynchronous JavaScript And XML</h5>
+         <p class="c-1">Envia o trae datos externos sin recargar toda la página </p>
          <ul>
             <li>
                XMLHttpRequest() es un objeto de JS que realiza peticiones HTTP asíncronas (AJAX) de forma nativa desde Javascript.

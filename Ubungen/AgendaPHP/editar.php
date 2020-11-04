@@ -8,6 +8,7 @@
     <section class="sec_1">
         <div class="box_1 add_contact">
             <form id="contacto" action="#">
+              <legend>Edite el contacto</legend>
                 <?php include "inc/layout/formulario.php"; ?>
             </form>
         </div>

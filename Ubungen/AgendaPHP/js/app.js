@@ -17,21 +17,22 @@ function leerFormulario(e) {
     if (nombre === "" || empresa === "" || telefono === "") {
         mostrarNotificacion('Todos los campos son obligatorios', 'error');
     } else {
-        //Pasar la validacion
+        //Pasar la validacion, crear llamado a Ajax
         const infoContacto = new FormData();
         infoContacto.append('nombre', nombre);
         infoContacto.append('empresa', empresa);
         infoContacto.append('telefono', telefono);
         infoContacto.append('accion', accion);
 
-        console.log(...infoContacto);
+        // console.log('Esta info es de formData()');
+        // console.log(...infoContacto);
         if (accion === 'crear') {
            insertarDB(infoContacto);
         }else{
            // editar el contacto
-        }
-    }
-}
+        } //if crear
+    } //else formData
+} //function leerFormulario
 
 // Insertar en la base de datos via AJAX
 function insertarDB(datos) {
@@ -44,13 +45,12 @@ function insertarDB(datos) {
    //pasar los datos
    xhr.onload = function () {
       if (this.status === 200) {
-         // datos en array asociativo PHP
-         //JSON.parse lo convierte de Json a Objeto para poder acceder a ella
-         console.log(JSON.parse( xhr.responseText) );
-         //leemos la respuesta de PHP
-         const respuesta = JSON.parse (xhr.responseText) ;
+        // console.log(JSON.parse(xhr.responseText));
+         const respuesta = JSON.parse(xhr.responseText);
 
          console.log(respuesta.empresa);
+
+
       } //if
    }
    //enviar los datos
@@ -60,7 +60,7 @@ function insertarDB(datos) {
 function mostrarNotificacion(mensaje, clase) {
     const notificacion = document.createElement('div');
     notificacion.classList.add(clase, 'notificacion', 'sombra');
-    notificacion.textContent = 'Hubo un error';
+    notificacion.textContent = mensaje;
 
     formularioContactos.insertBefore(notificacion, document.querySelector('form legend'));
 
