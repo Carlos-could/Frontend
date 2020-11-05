@@ -2,7 +2,7 @@
 
 <div class="container">
    <div class="row my-4 text-center">
-           <h3 class="">Agenda de Contactos</h3>
+           <h3 class="">Agenda de Contactos - CRUD</h3>
    </div>
 
     <div class="row">
