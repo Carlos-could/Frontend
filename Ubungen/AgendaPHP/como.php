@@ -8,7 +8,7 @@
         <li>El atributo "action=#" esta vacio porque vamos a usar AJAX, por lo general escribimos un archivo.php que se conecta con la BD y almacena los datos en la BD.</li>
         <li>Lleva un ID porque vamos a seleccionarlo con JS</li>
       </ul>
-    </div>  <!-- 6 columnas -->
+    </div>  <!-- 5 columnas -->
 
     <div class="seven columns">
 <pre class="m-cero">
@@ -22,8 +22,8 @@
 &lt;/form&gt;
 </code>
 </pre>
-      </div> <!-- 6 columnas -->
-  </div>  <!-- row -->
+  </div> <!-- 7 columnas -->
+</div>  <!-- row -->
 
 <div class="row my-4 pb-2" style="border-bottom: 1px solid gray;">
   <div class="five columns">
@@ -33,7 +33,7 @@
       <li>La funcion lee los <strong>"inputs"</strong> del formulario</li>
       <li>Y con la condición <strong>"if"</strong> verificamos que no esten vacios</li>
     </ul>
-  </div> <!-- 6 columnas -->
+  </div> <!-- 5 columnas -->
 
   <div class="seven columns">
      <p class="m-cero">app.js</p>
@@ -53,8 +53,7 @@ function leerFormulario(e) {
         }
 }
 </code> </pre>
-  </div> <!-- 6 columnas -->
-
+  </div> <!-- 7 columnas -->
 </div> <!-- row -->
 
 <div class="row my-4 pb-2" style="border-bottom: 1px solid gray;">
@@ -71,7 +70,7 @@ function leerFormulario(e) {
       <li>clase error lo pinta de color rojo</li>
       <li>clase exito lo pinta de color verde</li>
     </ul>
-  </div> <!-- 6 columnas -->
+  </div> <!-- 5 columnas -->
 
   <div class="seven columns">
     <p class="m-cero">app.js</p>
@@ -95,8 +94,7 @@ function leerFormulario(e) {
 }
       </code>
     </pre>
-  </div> <!-- 6 columnas -->
-
+  </div> <!-- 7 columnas -->
 </div> <!-- row -->
 
 <div class="row my-4 pb-2" style="border-bottom: 1px solid gray;">
@@ -129,7 +127,7 @@ function leerFormulario(e) {
   } else
   //editar contacto
 }</code></pre>
-</div><!-- 5 columnas -->
+</div><!-- 7 columnas -->
 </div> <!-- row -->
 
 <div class="row my-4 pb-2" style="border-bottom: 1px solid gray;">
@@ -145,8 +143,8 @@ function leerFormulario(e) {
       <li>Pasamos los datos - onload()</li>
       <li>Enviamos los datos - send()</li>
     </ol>
-
   </div><!-- 5 columnas -->
+
   <div class="seven columns">
     <pre><code>function insertarDB(datos) {
   const xhr = new XMLHttpRequest();
@@ -157,9 +155,78 @@ function leerFormulario(e) {
     }
   }
   xhr.send(datos);
-}</code> </pre>
-</div> <!-- 7 columnas -->
+}</code></pre>
+  </div> <!-- 7 columnas -->
+</div> <!-- row -->
 
+<div class="row my-4 pb-2" style="border-bottom: 1px solid gray;">
+  <div class="five columns">
+    <h5>Crear la base de datos</h5>
+    <ol>
+      <li>Necesita 4 parametros: usuario, password, host y nombre BD</li>
+      <li>Y la clase "mysqli", la cual conecta PHP y la BD</li>
+    </ol>
+
+  </div><!-- 5 columnas -->
+
+  <div class="seven columns">
+    <p class="m-cero">bd.php</p>
+<pre><code>define('DB_USUARIO', 'root');
+define('DB_PASSWORD', '');
+define('DB_HOST', 'localhost');
+define('DB_NOMBRE', 'agendaphp');
+
+$conn = new mysqli(DB_HOST, DB_USUARIO, DB_PASSWORD, DB_NOMBRE);</code></pre>
+  </div> <!-- 7 columnas -->
+</div> <!-- row -->
+
+<div class="row my-4 pb-2" style="border-bottom: 1px solid gray;">
+  <div class="five columns">
+    <h5>Insertando las entradas a la BD</h5>
+    <ol>
+      <p>Si la "accion" es "crear":</p>
+      <li>Validamos o limpiar los datos o las entradas, para que no escriban huevadas</li>
+      <li>prepare statement - Asegurar que la web funcione si el server esta apagado</li>
+    </ol>
+  </div><!-- 5 columnas -->
+
+  <div class="seven columns">
+    <p class="m-cero">xxx</p>
+<pre><code>if ($_POST['accion'] == 'crear') {
+  require_once('../funciones/bd.php');
+
+  $nombre = filter_var($_POST['nombre'], FILTER_SANITIZE_STRING);
+  $empresa = filter_var($_POST['empresa'], FILTER_SANITIZE_STRING);
+  $telefono = filter_var($_POST['telefono'], FILTER_SANITIZE_STRING);
+
+  // prepare statement
+  try {
+    $stmt = $conn->prepare("INSERT INTO contactos (nombre, empresa, telefono) VALUES (?, ?, ?)");
+    $stmt->bind_param("sss", $nombre, $empresa, $telefono);
+    $stmt->execute();
+
+    if($stmt->affected_rows == 1) {
+      $respuesta = array(
+        'respuesta' => 'correcto',
+        'datos' => array(
+          'nombre' => $nombre,
+          'empresa' => $empresa,
+          'telefono' => $telefono,
+          'id_insertado' => $stmt->insert_id
+        )
+      );
+    }
+
+    $stmt->close();
+    $conn->close();
+
+    } catch(Exception $e) {
+      $respuesta = array(
+        'error' = $e->getMessage()
+      );
+    }
+}</code></pre>
+  </div> <!-- 7 columnas -->
 </div> <!-- row -->
 
 
@@ -174,6 +241,5 @@ function leerFormulario(e) {
 
 </div>  <!-- container -->
 
-</div>
 
 <?php include "inc/layout/footer.php"; ?>

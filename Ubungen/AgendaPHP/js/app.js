@@ -45,13 +45,9 @@ function insertarDB(datos) {
    //pasar los datos
    xhr.onload = function () {
       if (this.status === 200) {
-        // console.log(JSON.parse(xhr.responseText));
          const respuesta = JSON.parse(xhr.responseText);
-
          console.log(respuesta.empresa);
-
-
-      } //if
+      }
    }
    //enviar los datos
    xhr.send(datos);
