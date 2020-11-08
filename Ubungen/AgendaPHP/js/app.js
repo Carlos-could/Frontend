@@ -88,18 +88,17 @@ function insertarDB(datos) {
          contenedorAcciones.appendChild(btnEliminar);
 
          //agregar al try {
-           nuevoContacto.appendChild(contenedorAcciones);
-         } catch (e) {
+         nuevoContacto.appendChild(contenedorAcciones);
 
-         } finally {
-
+        //agregarlo con los Contactos
+        listadoContactos.appendChild(nuevoContacto);
          }
+      }//f
 
-      }
+      //enviar los datos
+      xhr.send(datos);
    }
-   //enviar los datos
-   xhr.send(datos);
-}
+
 //Notificacion en pantalla
 function mostrarNotificacion(mensaje, clase) {
     const notificacion = document.createElement('div');
