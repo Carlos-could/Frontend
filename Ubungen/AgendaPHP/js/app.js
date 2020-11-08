@@ -1,4 +1,5 @@
-const formularioContactos = document.querySelector('#contacto');
+const formularioContactos = document.querySelector('#contacto'),
+      listadoContactos = document.querySelector('#listado-contactos tbody');
 eventListeners();
 function eventListeners() {
     //Cuando el formulario de crear o editar se ejecuta
@@ -48,7 +49,52 @@ function insertarDB(datos) {
         console.log(JSON.parse(xhr.responseText));
          const respuesta = JSON.parse(xhr.responseText);
 
-         console.log(respuesta.empresa);
+         //Inserta un nuevo elemento a la tabla
+         const nuevoContacto = document.createElement('tr');
+
+         nuevoContacto.innerHTML = `
+          <td>${respuesta.datos.nombre}</td>
+          <td>${respuesta.datos.empresa}</td>
+          <td>${respuesta.datos.telefono}</td>
+         `;
+
+         //crear contenedor para los botones
+         const contenedorAcciones = document.createElement('td');
+
+         //crear el icono de editar
+         const iconoEditar = document.createElement('i');
+         iconoEditar.classList.add('fas', 'fa-pen-square');
+
+         //crear el enlace para iconoEditar
+         const btnEditar = document.createElement('a');
+         btnEditar.appendChild(iconoEditar);
+         btnEditar.href = `editar.php?id=${respuesta.datos.id_insertado}`;
+         btnEditar.classList.add('btn', 'btn-editar');
+
+         //agregarlo al padre
+         contenedorAcciones.appendChild(btnEditar);
+
+         //crear el icono de eliminar
+         const iconoEliminar = document.createElement('i');
+         iconoEliminar.classList.add('fas', 'fa-trash-alt');
+
+         //crear el boton de iconoEliminar
+         const btnEliminar = document.createElement('button');
+         btnEliminar.appendChild(iconoEliminar);
+         btnEliminar.setAttribute('data-id', respuesta.datos.id_insertado);
+         btnEliminar.classList.add('btn', 'btn-borrar');
+
+         //agregarlo al padre
+         contenedorAcciones.appendChild(btnEliminar);
+
+         //agregar al try {
+           nuevoContacto.appendChild(contenedorAcciones);
+         } catch (e) {
+
+         } finally {
+
+         }
+
       }
    }
    //enviar los datos
