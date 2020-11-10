@@ -92,6 +92,12 @@ function insertarDB(datos) {
 
         //agregarlo con los Contactos
         listadoContactos.appendChild(nuevoContacto);
+
+        //resetear el formularioContactos
+        document.querySelector('form').reset();
+
+        //mostrar la Notificacion
+        mostrarNotificacion('Contacto creado correctamente', 'correcto');
          }
       }//f
 

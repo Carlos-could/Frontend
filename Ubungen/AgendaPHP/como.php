@@ -191,7 +191,7 @@ $conn = new mysqli(DB_HOST, DB_USUARIO, DB_PASSWORD, DB_NOMBRE);</code></pre>
   </div><!-- 5 columnas -->
 
   <div class="seven columns">
-    <p class="m-cero">xxx</p>
+    <p class="m-cero">modelo-contactos.php</p>
 <pre><code>if ($_POST['accion'] == 'crear') {
   require_once('../funciones/bd.php');
 
@@ -216,15 +216,15 @@ $conn = new mysqli(DB_HOST, DB_USUARIO, DB_PASSWORD, DB_NOMBRE);</code></pre>
         )
       );
     }
-
     $stmt->close();
     $conn->close();
 
     } catch(Exception $e) {
       $respuesta = array(
-        'error' = $e->getMessage()
+        'error' => $e->getMessage()
       );
     }
+  echo json_encode($respuesta);
 }</code></pre>
   </div> <!-- 7 columnas -->
 </div> <!-- row -->
