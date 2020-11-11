@@ -60,29 +60,30 @@ function insertarDB(datos) {
 
          //crear contenedor para los botones
          const contenedorAcciones = document.createElement('td');
+         contenedorAcciones.classList.add('acciones')
 
          //crear el icono de editar
          const iconoEditar = document.createElement('i');
-         iconoEditar.classList.add('fas', 'fa-pen-square');
+         iconoEditar.classList.add('fas', 'fa-pen-square', 'btn-doscinco');
 
          //crear el enlace para iconoEditar
          const btnEditar = document.createElement('a');
          btnEditar.appendChild(iconoEditar);
          btnEditar.href = `editar.php?id=${respuesta.datos.id_insertado}`;
-         btnEditar.classList.add('btn', 'btn-editar');
+         btnEditar.classList.add('btn-editar', 'c-5');
 
          //agregarlo al padre
          contenedorAcciones.appendChild(btnEditar);
 
          //crear el icono de eliminar
          const iconoEliminar = document.createElement('i');
-         iconoEliminar.classList.add('fas', 'fa-trash-alt');
+         iconoEliminar.classList.add('fas', 'fa-trash-alt', 'btn-dos');
 
          //crear el boton de iconoEliminar
          const btnEliminar = document.createElement('button');
          btnEliminar.appendChild(iconoEliminar);
          btnEliminar.setAttribute('data-id', respuesta.datos.id_insertado);
-         btnEliminar.classList.add('btn', 'btn-borrar');
+         btnEliminar.classList.add('btn-borrar', 'm-cero', 'p-cero', 'c-1');
 
          //agregarlo al padre
          contenedorAcciones.appendChild(btnEliminar);

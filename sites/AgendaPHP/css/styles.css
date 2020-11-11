@@ -51,8 +51,23 @@
    font-size: 2rem;
    text-align: center;
 }
-/* ifrane */
-iframe {
-   border-radius: 5px;
-   border: 1px solid gray;
+
+.acciones{
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+}
+.btn-editar{
+   text-decoration: none;
+}
+
+.btn-borrar{
+   border: none;
+}
+
+.btn-dos{
+   font-size: 2rem;
+}
+.btn-doscinco{
+   font-size: 2.5rem;
 }

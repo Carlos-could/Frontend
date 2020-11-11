@@ -43,14 +43,15 @@
                         <td class="">Mundo Red</td>
                         <td class="">015902293086</td>
                         <td class="" style="display:flex; justify-content:space-around; align-items:center">
-                           <a class="btn-editar c-5" href="editar.php?id=1" style="text-decoration:none">
-                              <i class="fas fa-pen-square" style="font-size:2.5rem"></i>
+                           <a class="btn-editar c-5" href="editar.php?id=1">
+                              <i class="fas fa-pen-square btn-doscinco"></i>
                            </a>
-                           <button data-id="1" type="button" class="btn-borrar m-cero p-cero c-1" style="border:none">
-                              <i class="fas fa-trash-alt" style="font-size:2rem"></i>
+                           <button data-id="1" type="button" class="m-cero p-cero c-1 btn-borrar">
+                              <i class="fas fa-trash-alt btn-dos m-cero"></i>
                            </button>
                         </td>
                      </tr>
+
                      <tr>
                         <td>Carlos Moran</td>
                         <td>Mundo Red</td>
@@ -59,20 +60,7 @@
                            <a class="btn-editar c-5" href="editar.php?id=1" style="text-decoration:none">
                               <i class="fas fa-pen-square" style="font-size:2.5rem"></i>
                            </a>
-                           <button data-id="1" type="button" class="btn-borrar m-cero p-cero c-1" style="border:none">
-                              <i class="fas fa-trash-alt" style="font-size:2rem"></i>
-                           </button>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td>Carlos Moran</td>
-                        <td>Mundo Red</td>
-                        <td>015902293086</td>
-                        <td class="" style="display:flex; justify-content:space-around; align-items:center">
-                           <a class="btn-editar c-5" href="editar.php?id=1" style="text-decoration:none">
-                              <i class="fas fa-pen-square" style="font-size:2.5rem"></i>
-                           </a>
-                           <button data-id="1" type="button" class="btn-borrar m-cero p-cero c-1" style="border:none">
+                           <button data-id="1" type="button" class="btn-borrar m-cero p-cero c-1">
                               <i class="fas fa-trash-alt" style="font-size:2rem"></i>
                            </button>
                         </td>
