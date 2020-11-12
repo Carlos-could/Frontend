@@ -4,6 +4,9 @@ eventListeners();
 function eventListeners() {
     //Cuando el formulario de crear o editar se ejecuta
     formularioContactos.addEventListener('submit', leerFormulario);
+
+    //Listener para eliminar el boton
+    listadoContactos.addEventListener('click', eliminarContacto);
 }
 function leerFormulario(e) {
     // console.log(e)
@@ -70,7 +73,7 @@ function insertarDB(datos) {
          const btnEditar = document.createElement('a');
          btnEditar.appendChild(iconoEditar);
          btnEditar.href = `editar.php?id=${respuesta.datos.id_insertado}`;
-         btnEditar.classList.add('btn-editar', 'c-5');
+         btnEditar.classList.add('btn-editar', 'btn', 'c-5');
 
          //agregarlo al padre
          contenedorAcciones.appendChild(btnEditar);
@@ -83,7 +86,7 @@ function insertarDB(datos) {
          const btnEliminar = document.createElement('button');
          btnEliminar.appendChild(iconoEliminar);
          btnEliminar.setAttribute('data-id', respuesta.datos.id_insertado);
-         btnEliminar.classList.add('btn-borrar', 'm-cero', 'p-cero', 'c-1');
+         btnEliminar.classList.add('btn-borrar', 'btn', 'm-cero', 'p-cero', 'c-1');
 
          //agregarlo al padre
          contenedorAcciones.appendChild(btnEliminar);
@@ -105,6 +108,41 @@ function insertarDB(datos) {
       //enviar los datos
       xhr.send(datos);
    }
+
+//eliminar el contactos
+
+function eliminarContacto (e){
+  if (e.target.parentElement.classList.contains('btn-borrar') ) {
+    const id = e.target.parentElement.getAttribute('data-id');
+    // console.log(id);
+    // preguntar al usuario
+    const respuesta = confirm('Estas seguro?');
+
+    if (respuesta) {
+      //llamado a ajas
+      //crear el objeto
+      const xhr = new XMLHttpRequest();
+
+      //abrir la conexion
+      xhr.open('GET', `inc/modelos/modelo-contactos.php?id=${id}&accion=borrar`, true);
+
+      //leer la respuesta
+      xhr.onload = function() {
+        if (this.status === 200) {
+          const resultado = JSON.parse(xhr.responseText);
+
+          console.log(resultado);
+        }
+      }
+      //enviar la peticion
+      xhr.send();
+    }
+  }
+}
+
+
+
+
 
 //Notificacion en pantalla
 function mostrarNotificacion(mensaje, clase) {

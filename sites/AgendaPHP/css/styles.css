@@ -57,6 +57,14 @@
    justify-content: space-around;
    align-items: center;
 }
+
+.btn{
+  text-decoration: none;
+}
+.btn:hover{
+  cursor: pointer;
+  background-color: var(--c4);
+}
 .btn-editar{
    text-decoration: none;
 }
