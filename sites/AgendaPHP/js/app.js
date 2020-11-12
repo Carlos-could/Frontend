@@ -1,13 +1,17 @@
 const formularioContactos = document.querySelector('#contacto'),
       listadoContactos = document.querySelector('#listado-contactos tbody');
 eventListeners();
+
 function eventListeners() {
     //Cuando el formulario de crear o editar se ejecuta
     formularioContactos.addEventListener('submit', leerFormulario);
 
     //Listener para eliminar el boton
-    listadoContactos.addEventListener('click', eliminarContacto);
+    if (listadoContactos) {
+      listadoContactos.addEventListener('click', eliminarContacto);
+    }
 }
+
 function leerFormulario(e) {
     // console.log(e)
     e.preventDefault();
@@ -32,10 +36,14 @@ function leerFormulario(e) {
         // console.log(...infoContacto);
         if (accion === 'crear') {
            insertarDB(infoContacto);
-        }else{
+        } else {
            // editar el contacto
+           //leer id
+           const idRegistro = document.querySelector('#id').value;
+           infoContacto.append('id', idRegistro);
+           actualitarRegistro(infoContacto);
         } //if crear
-    } //else formData
+    }
 } //function leerFormulario
 
 // Insertar en la base de datos via AJAX
@@ -109,8 +117,35 @@ function insertarDB(datos) {
       xhr.send(datos);
    }
 
-//eliminar el contactos
+function actualitarRegistro(datos) {
+   //crear el objeto
+   const xhr = new XMLHttpRequest();
 
+   //abrir la conexion
+   xhr.open('POST', 'inc/modelos/modelo-contactos.php', true);
+
+   //leer la respuesta
+   xhr.onload = function() {
+      if (this.status === 200) {
+         const respuesta = JSON.parse(xhr.responseText);
+         if (respuesta.respuesta === 'correcto') {
+            //mostrar notificacion de correcto
+            mostrarNotificacion('Contacto editado correctamente', 'correcto');
+         } else {
+            //hubo un error
+            mostrarNotificacion('Hubo un error...', 'error');
+         }
+         //despues de 3 segundos redireccionar
+         setTimeout(()=> {
+            window.location.href = 'index.php';
+         }, 3000);
+      }
+   }
+
+   xhr.send(datos);
+}
+
+//eliminar el contactos
 function eliminarContacto (e){
   if (e.target.parentElement.classList.contains('btn-borrar') ) {
     const id = e.target.parentElement.getAttribute('data-id');
