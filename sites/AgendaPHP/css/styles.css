@@ -74,10 +74,11 @@
 
 .notificacion{
    position: fixed;
-   top: 1rem;
-   right: 1rem;
+   top: 3rem;
+   left: 3rem;
    padding: 1rem 3rem;
    opacity: 0;
+   transition: opacity .5s ease;
 }
 
 .visible{
@@ -86,8 +87,10 @@
 
 .correcto{
    background-color: var(--c5);
+   color: white;
 }
 
 .error{
    background-color: var(--c1);
+   color: white;
 }
