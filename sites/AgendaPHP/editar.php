@@ -1,4 +1,15 @@
-<?php include "inc/layout/header.php"; ?>
+<?php
+include "inc/funciones/funciones.php";
+include "inc/layout/header.php";
+
+$id = filter_var($_GET['id'], FILTER_VALIDATE_INT);
+
+if (!$id) {
+  
+}
+?>
+
+
 <header>
 
         <h1>Editar Contacto</h1>
