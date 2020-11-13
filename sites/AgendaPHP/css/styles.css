@@ -45,6 +45,12 @@
 .pb-2{ padding-bottom: 2rem; }
 .pb-4{ padding-bottom: 4rem; }
 
+/* Centrar caja */
+.centrar-caja{
+  display: grid;
+  place-items: center;
+}
+
 
 /* iconos */
 .icono{
@@ -71,6 +77,12 @@
 
 .btn-borrar{
    border: none;
+}
+
+.btn-volver{
+   padding: 1rem 2rem;
+   background-color: var(--c3);
+   color: var(--c4);
 }
 
 .btn-dos{

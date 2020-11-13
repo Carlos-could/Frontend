@@ -12,24 +12,26 @@
    $contacto = $resultado->fetch_assoc();
 ?>
 
-
-<header>
-
-        <h1>Editar Contacto</h1>
-</header>
-
 <div class="container">
-    <section class="sec_1">
-        <div class="box_1 add_contact">
-            <form id="contacto" action="#">
-              <legend>Edite el contacto</legend>
-                <?php include "inc/layout/formulario.php"; ?>
-            </form>
-        </div>
-    </section>
+   <div class="row my-4">
+      <h3 class="text-center">Edite el contacto</h3>
+   </div>
+   <div class="row flex-center">
+      <div class="six columns">
+         <form class="" id="contacto" action="#">
+            <legend></legend>
+            <?php include "inc/layout/formulario.php"; ?>
+         </form>
+      </div>
+   </div>
+
+   <div class="row">
+      <div class="six columns">
+         <a href="index.php" class="btn btn-volver"> <- volver</a>
+
+      </div>
+   </div>
 
 </div>
-<section class="sec_volver">
-    <a href="index.php" class="btn btn-volver"> <- volver</a>
-</section>
+
 <?php include "inc/layout/footer.php"; ?>
