@@ -1,5 +1,7 @@
 const formularioContactos = document.querySelector('#contacto'),
       listadoContactos = document.querySelector('#listado-contactos tbody');
+      inputBuscador =  document.querySelector('#buscar');
+
 eventListeners();
 
 function eventListeners() {
@@ -10,6 +12,9 @@ function eventListeners() {
     if (listadoContactos) {
       listadoContactos.addEventListener('click', eliminarContacto);
     }
+
+    //buscador
+    inputBuscador.addEventListener('input', buscarContactos);
 }
 
 function leerFormulario(e) {
@@ -186,10 +191,6 @@ function eliminarContacto (e){
   }
 }
 
-
-
-
-
 //Notificacion en pantalla
 function mostrarNotificacion(mensaje, clase) {
     const notificacion = document.createElement('div');
@@ -208,4 +209,18 @@ function mostrarNotificacion(mensaje, clase) {
          }, 500);
       }, 3000);
    }, 100);
+}
+
+function buscarContactos(e) {
+   const expresion = new RegExp(e.target.value, "i"),
+         registros = document.querySelectorAll('tbody tr');
+
+         registros.forEach(registro => {
+            registro.style.display = 'none';
+
+            console.log(registro.childNodes[1].textContent.replace(/\s/g, " ").search(expresion) != -1);
+            if (registro.childNodes[1].textContent.replace(/\s/g, " ").search(expresion) != -1) {
+               registro.style.display = 'table-row';
+            }
+         })
 }

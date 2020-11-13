@@ -27,7 +27,7 @@ include "inc/layout/header.php";
     <div class="eight columns contactos">
         <div class=" list_contact contenedor-contactos">
             <h4 class="c-1">Listado de contactos</h4>
-            <input type="text" class="buscador u-full-width" placeholder="Buscar contactos" style="height:50px;">
+            <input id="buscar" type="text" class="buscador u-full-width" placeholder="Buscar contactos" style="height:50px;">
 
 
             <div class="contenedor-tabla">
