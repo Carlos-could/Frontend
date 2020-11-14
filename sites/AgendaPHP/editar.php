@@ -13,7 +13,7 @@ $contacto = $resultado->fetch_assoc();
 
 <div class="container">
    <div class="row my-4">
-      <h3 class="text-center">Edite el contacto</h3>
+      <h3 class="text-center">Edición de contacto</h3>
    </div>
    <div class="row flex-center">
       <div class="six columns">
