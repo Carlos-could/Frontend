@@ -1,6 +1,16 @@
 <?php
-   include "inc/funciones/funciones.php";
-   include "inc/layout/header.php";
+include "inc/funciones/funciones.php";
+include "inc/layout/header.php";
+
+$id = filter_var($_GET['id'], FILTER_VALIDATE_INT);
+
+if (!$id) {
+
+}
+?>
+
+
+<header>
 
    $id = filter_var($_GET['id'], FILTER_VALIDATE_INT);
 
