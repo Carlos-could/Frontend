@@ -5,21 +5,10 @@ include "inc/layout/header.php";
 $id = filter_var($_GET['id'], FILTER_VALIDATE_INT);
 
 if (!$id) {
-
+   die('No es valido');
 }
-?>
-
-
-<header>
-
-   $id = filter_var($_GET['id'], FILTER_VALIDATE_INT);
-
-   if (!$id) {
-     die('No es valido');
-   }
-
-   $resultado = obtenerContacto($id);
-   $contacto = $resultado->fetch_assoc();
+$resultado = obtenerContacto($id);
+$contacto = $resultado->fetch_assoc();
 ?>
 
 <div class="container">
