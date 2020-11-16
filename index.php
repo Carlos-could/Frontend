@@ -19,6 +19,9 @@
       <div class="row">
         <a class="button bg-4  c-w" href="sites/agendaphp/index.php" target="_blank">Agenda PHP</a>
       </div>
+      <div class="row">
+        <a class="button bg-5  c-w" href="sites/aprendiendophp/index.php" target="_blank">Aprendiendo PHP</a>
+      </div>
    </div> <!-- container -->
    <script type="text/javascript" src="js/script.js"></script>
 </body>
