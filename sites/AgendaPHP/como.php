@@ -230,12 +230,112 @@ $conn = new mysqli(DB_HOST, DB_USUARIO, DB_PASSWORD, DB_NOMBRE);</code></pre>
 </div> <!-- row -->
 
 
+<div class="row my-4 pb-2" style="border-bottom: 1px solid gray;">
+  <div class="five columns">
+    <h5>377 - Elimar contacto de BD y DOM</h5>
+    <ol>
+      <p>Crear funcion eliminar contacto en app.js</p>
+      <li>para ello hay que saber el id del contacto</li>
+    </ol>
+  </div><!-- 5 columnas -->
+
+  <div class="seven columns">
+    <p class="m-cero">app.js</p>
+<pre><code></code></pre>
+  </div> <!-- 7 columnas -->
+</div> <!-- row -->
+
+<div class="row my-4 pb-2" style="border-bottom: 1px solid gray;">
+  <div class="five columns">
+    <h5>378 - Elimar el contacto de BD y DOM</h5>
+    <ol>
+      <li>DB modelo.php y app.js</li>
+      <li>DOM </li>
+    </ol>
+  </div><!-- 5 columnas -->
+
+  <div class="seven columns">
+    <p class="m-cero">app.js</p>
+<pre><code></code></pre>
+  </div> <!-- 7 columnas -->
+</div> <!-- row -->
+
+<div class="row my-4 pb-2" style="border-bottom: 1px solid gray;">
+  <div class="five columns">
+    <h5>379 - Traer datos del contacto para ser editado</h5>
+    <ol>
+      <li>Añadir funcion obtener contacto</li>
+    </ol>
+    <ol>
+      <li>include funciones.php</li>
+      <li>fetch_assoc para traer el contacto</li>
+    </ol>
+    <ol>
+      <li>en input de cada campo añadir value con variables $contacto, asi pega el valor en el input</li>
+      <li>crear $textoBtn y $accion para cambiar el nombre del boton (usamos operador ternario - wie 'if')</li>
+      <button>añadir</button> <button>guardar</button>
+    </ol>
+  </div><!-- 5 columnas -->
+
+  <div class="seven columns">
+    <p class="m-cero">funciones.php</p>
+<pre><code></code></pre>
+<p class="m-cero">editar.php</p>
+<pre><code></code></pre>
+<p class="m-cero">formulario.php</p>
+<pre><code></code></pre>
+  </div> <!-- 7 columnas -->
+</div> <!-- row -->
+
+<div class="row my-4 pb-2" style="border-bottom: 1px solid gray;">
+  <div class="five columns">
+    <h5>380 - Actualizar los registros</h5>
+    <ol>
+      <li>crear funcion actualizarRegistro y colocarlo en la funcion leerFormulario</li>
+      <li>Llamado AJAX en funcion actualizarRegistro</li>
+    </ol>
+    <ol>
+      <li>crear el if de editar para enviar los datos a la BD</li>
+    </ol>
+  </div><!-- 5 columnas -->
+
+  <div class="seven columns">
+    <p class="m-cero">app.js</p>
+<pre><code></code></pre>
+    <p class="m-cero">modelo-contactos.php</p>
+<pre><code></code></pre>
+  </div> <!-- 7 columnas -->
+</div> <!-- row -->
 
 
+<div class="row my-4 pb-2" style="border-bottom: 1px solid gray;">
+  <div class="five columns">
+    <h5>381 - Buscar contactos</h5>
+    <ol>
+      <li>querzSelector($inputBuscar)</li>
+      <li>Crear funcion buscarContactos</li>
+    </ol>
+  </div><!-- 5 columnas -->
 
+  <div class="seven columns">
+    <p class="m-cero">app.js</p>
+<pre><code></code></pre>
+  </div> <!-- 7 columnas -->
+</div> <!-- row -->
 
+<div class="row my-4 pb-2" style="border-bottom: 1px solid gray;">
+  <div class="five columns">
+    <h5>382 - Mostrar total de contactos</h5>
+    <ol>
+      <li>fin del proyecto</li>
+    </ol>
+  </div><!-- 5 columnas -->
 
-
+  <div class="seven columns">
+    <p class="m-cero">app.js</p>
+<pre><code></code></pre>
+  </div> <!-- 7 columnas -->
+</div> <!-- row -->
 
 
 

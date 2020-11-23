@@ -23,7 +23,7 @@
          </ol>
       </div> <!--row -->
 
-      <div class="row">
+      <div class="row my-4 pb-2" style="border-bottom: 1px solid gray;">
          <div class="six columns">
             <h5>Traer archivo de texto</h5>
 <pre class="c-1">
@@ -86,6 +86,53 @@ boton.addEventListener('click', traerTXT);
 </div> <!-- six columns - Derecha -->
 
       </div> <!-- row -->
+
+      <div class="row">
+        <div class="six columns">
+          <h4>diccionario</h4>
+          <ul>
+            <li>request = solicitud</li>
+            <li>response = respuesta</li>
+            <li>instancia = hacer una copia</li>
+          </ul>
+          <h4>metodos</h4>
+          <ul>
+            <li>new -> crea un nuevo Request</li>
+            <li>abort( ) -> cancela el Request</li>
+            <li>getAllResponseHeaders( ) -> Retorna informacion - accion del header</li>
+            <li>open( ) -> informacion basica del Request</li>
+            <li>send( ) -> envia el Request al servidor</li>
+            <li>set RequestHeader( ) -> agrega valores al header que se desea enviar</li>
+          </ul>
+        </div>
+
+        <div class="six columns">
+          <h4>propiedades</h4>
+          <ul>
+            <li>readyState = el estado del XMLHttpRequest</li>
+            <ul>
+              <li>0 = request sin iniciar</li>
+              <li>1 = conexion establecida</li>
+              <li>2 = request recibido</li>
+              <li>3 = procesando el request</li>
+              <li>4 = request finalizado y la respuesta esta lista</li>
+            </ul>
+            <li>onreadystatechange = define una funcion que debera ser llamada cuando el estado cambie. Esta funcion se ejecuda cada vez que readyState cambie.</li>
+            <li>responseText = retorna la respuesta como string</li>
+            <li>responseXML = retorna la respuesta como XML</li>
+            <li>status = retorna la respuesta del request</li>
+            <ul>
+              <li>200: correcto / ok</li>
+              <li>403: prohibido / Forbidden(derechos)</li>
+              <li>404: no encontrado/ Not found</li>
+            </ul>
+          </ul>
+        </div>
+
+        </div> <!-- row -->
+
+      </div>
+
    </div> <!-- container -->
 
  <script>
