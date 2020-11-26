@@ -1,7 +1,7 @@
 <?php
 $servidor="localhost";
 $usuario="root";
-$clave="";
+$clave="root";
 $baseDeDatos="formulario";
 
 $conexion = mysqli_connect($servidor, $usuario, $clave, $baseDeDatos);

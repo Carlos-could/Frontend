@@ -17,6 +17,7 @@
         <a class="button bg-3 c-w" href="sites/ajax.php" target="_blank">Ajax</a>
       </div>
       <div class="row">
+          <a class="button bg-4  c-w" href="sites/php/index.php" target="_blank">PHP</a>
         <a class="button bg-4  c-w" href="sites/agendaphp/index.php" target="_blank">Agenda PHP</a>
       </div>
       <div class="row">
