@@ -5,3 +5,11 @@ span{
 pre{
     font-family: 'PT Sans', sans-serif;
 }
+
+h2{
+  font-size: 3rem;
+}
+
+.titulo{
+  color: white;
+}
