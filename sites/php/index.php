@@ -37,7 +37,42 @@
         <hr>
     </div>
     <div class="row">
-        <h5 class="titulo">foreach</h5>
+        <h5 class="titulo">foreach (:  endforeach;)</h5>
+        <pre>$lenguajes = array('HTML', 'CSS', 'JavaScript', 'jQuery');</pre>
+        <pre><h2>foreach ( $lenguajes as $lenguaje ) {
+          echo $lenguaje
+        };</h2></pre>
+<pre>HTML
+CSS
+JavaScript
+jQuery
+</pre>
+
+<pre><h2>foreach ( $persona as $key => $val ) {
+        echo $key . ": " . $val
+      };</h2></pre>
+  <pre>nombre : Carlos
+edad : 22
+trabajo : arbeitloss
+  </pre>
+
+  <pre><h2>foreach ( $persona['datos'] as $person ) {
+          echo $person;
+        };</h2></pre>
+        <pre>Carlos
+22
+arbeitsloss</pre>
+
+<pre><h2>foreach ( $persona as $leng ) {
+        if (array_key_exists('frontend', $leng) ) :
+          foreach ($leng ['frontend'] as $front) :
+              echo $front;
+          endforeach;
+        endif;
+      };</h2></pre>
+      <pre>HTML
+CSS
+JavaScript</pre>
         <hr>
     </div>
     <div class="row">
@@ -47,6 +82,7 @@
     </div>
   </div>
 
+<!-- Cuatro columnasssssssssssssssss -->
   <div class="four columns">
     <h5 class="titulo">concatenacion ( . ó " " )</h5>
 <pre>echo $nombre . " " . $apellido;
