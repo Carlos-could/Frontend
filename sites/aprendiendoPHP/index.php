@@ -12,6 +12,9 @@
 <pre>
   <?php print_r($persona); ?>
 </pre>
+<pre>
+  <?php var_dump($persona); ?>
+</pre>
 <hr>
 <?php echo $persona['profesion']; ?>
 <hr>
