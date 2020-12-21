@@ -169,7 +169,21 @@ default:
 }
 
 Backend</pre>
-  </div>
+
+<h5 class="titulo">for</h5>
+<pre>for ( $i=0; $i<10; $i++ ) {
+    if ( $i = 3 ) {
+        echo " tres &lt;br/&gt; ";
+        continue;
+    }
+    echo $i . '&lt;br/&gt;';
+}
+
+1
+2
+tres
+4</pre>
+</div> <!-- 4 columnas -->
 
 </div>
 <?php include_once 'abajo.php'; ?>
