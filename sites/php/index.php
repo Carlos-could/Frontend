@@ -76,7 +76,21 @@ JavaScript</pre>
         <hr>
     </div>
     <div class="row">
-        <h5 class="titulo">for</h5>
+        <h5 class="titulo">funciones</h5>
+<pre><h2>function usuario ( $nombre, $tel ) {
+     echo $nombre . "/n";
+     echo $tel . "/n";
+}
+agenda ( 'Juan', '555-555' );</h2></pre>
+<pre>Juan
+555-555
+---------------------------------------------</pre>
+<pre><h2>function usuario ( $nombre, $tel ) {
+     return $contacto = $nombre . " " . $tel;
+}
+$usuario = usuario ( 'Juan', '555-555' );
+echo $usuario;</h2></pre>
+
         <hr>
 
     </div>
@@ -142,7 +156,7 @@ echo $existe;
 
 $existe2 = <strong>in_array</strong> ('Carlos', array_values ($persona) );</pre>
 
-<h5 class="titulo">if</h5>
+<h5 class="titulo">if ( Condicionales )</h5>
 <pre>$numero=10;
 
 if ( $numero % 2 == 0 ) {
@@ -169,9 +183,10 @@ default:
 }
 
 Backend</pre>
-
-<h5 class="titulo">for</h5>
-<pre>for ( $i=0; $i<10; $i++ ) {
+<!--
+///////////////////FOR -->
+<h5 class="titulo">for  ( Cliclos )</h5>
+<pre>for ( $i = 0; $i < 10; $i++ ) {
     if ( $i = 3 ) {
         echo " tres &lt;br/&gt; ";
         continue;
@@ -183,6 +198,28 @@ Backend</pre>
 2
 tres
 4</pre>
+
+<!--
+///////////////////WHILE -->
+<h5 class="titulo">while</h5>
+<pre>$premier_league = array('chelsea', 'manchester', 'arsenal', 'tottenham', 'liverpool');
+$i = 0;
+while ( $i <= count($premier_league) ) {
+     if ( count($premier_league) > 0 ){
+          echo $premier_league[$i] . &lt;br/&gt; ";
+          if ($i+1 === count($premier_league) ) {
+               echo "fin";
+          }
+     } else  {
+          echo "No hay resultados";
+          }
+     $i++;
+     }
+
+</pre>
+
+
+
 </div> <!-- 4 columnas -->
 
 </div>
